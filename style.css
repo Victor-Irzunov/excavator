@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+body
+{
+	/* background: #000; */
+	font-family: 'PT Serif', serif;
+}
+.main{
+	width: 100%;
+	height: 100vh;
+	background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.6)), url(background-1.webp);
+	max-height: 100vh;
+	background-position: center;
+	background-size: cover;
+	z-index: 1;
+	overflow: hidden;
+}
+.container{
+	width: 90%;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+main{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: space-between;
+}
+.box1{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+
+}
+main div:nth-child(1){
+	width: 60%;
+}
+main h1{
+	font-size: 4em;
+	color: #fff;
+	margin-top: 2em;
+	line-height: 1.2;
+}
+main h1 span{
+	color: yellow;
+}
+.tel a{
+	color: yellow;
+	font-size: 4em;
+	
+}
+main h3{
+	font-size: 1.3em;
+	color: #fff;
+}
+main h3 span{
+	color: yellow;
+}
+.box-li{
+	padding-left: 4em;
+}
+main ul li{
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 400;
+	margin-bottom: .3em;
+	list-style-type: square;
+}
+.price{
+	padding-left: 3em;
+}
+.price h2{
+	color: #fff;
+	font-size: 2em;
+}
+.box-2{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+.box-2 p{
+	color: rgba(204, 204, 204, 0.7);
+	font-size: 1.2em;
+}
+
+/* --------------- */
+.box
+{
+    padding: 10px 20px;
+	 margin-bottom: 7em;
+}
+
+.box h4
+{
+    color: yellow;
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+	 font-weight: 400;
+}
+.box .row100
+{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+}
+.box .row100 .col
+{
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    margin: 20px 0 10px;
+    transition: 0.5s;
+}
+.box .row100 .inputBox
+{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    color: yellow;
+}
+.box .row100 .inputBox .text
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+.box .row100 .inputBox input,
+.box .row100 .inputBox textarea
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 0 10px;
+    z-index: 1;
+    color: #000;
+}
+.box .row100 .inputBox .start
+{
+color: yellow;
+}
+
+.modal{
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.814);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	z-index: 100000;
+}
+.modal.active{
+	display: flex;
+}
+.modal-box{
+	width: 50vw;
+height: auto;
+background: #00a3a8;
+border-radius: 10px;
+position: relative;
+padding: 20px 20px 20px 20px;
+}
+.modal-exit{
+	position: absolute;
+	font-size: 2em;
+	top: -35px;
+	right: -35px;
+	cursor: pointer;
+}
+.modal-btn{
+	background: rgb(238, 255, 0);
+	padding: 5px 0px 5px 0px;
+	text-transform: uppercase;
+	font-size: 1em;
+	border: 1px solid #000;
+  color: #000;
+  max-width: 180px;
+}
+.modal-btn:hover{
+	background: rgb(8, 201, 8);
+}
+.formBx
+{
+  min-width: 60%;
+}
+.formBx form
+{
+  display: flex;
+  flex-direction: column;
+}
+.formBx form h3,
+.contactInfo h3
+{
+  color: #000;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.formBx form input,
+.formBx form textarea
+{
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 16px;
+  background: transparent;
+  border: 1px solid #000;
+  outline: none;
+  resize: none;
+  color: #000;
+}
+.formBx form input::placeholder,
+.formBx form textarea::placeholder
+{
+  color: #000;
+}
+.formBx form textarea
+{
+  min-height: 200px;
+}
+.formBx form input[type="submit"]
+{
+  max-width: 180px;
+  background: rgb(238, 255, 0);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 5px 5px 5px;
+}
+
+
+
+
+.box .row100 .inputBox input:focus + .text
+{
+    top: -35px;
+    left: -10px;
+}
+.box .row100 .inputBox .start:focus{
+	color: #000;
+}
+.box .row100 .inputBox .line
+{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: yellow;
+    transition: 0.5s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.box .row100 .inputBox input:focus ~ .line
+/* .box .row100 .inputBox input:valid ~ .line */
+{
+    height: 100%;
+}
+
+.box .row100 .inputBox #input_message
+{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: 10px 0;
+}
+.box .row100 .inputBox textarea
+{
+    height: 100%;
+    resize: none;
+}
+.box .row100 .inputBox textarea:focus ~ .line
+/* .box .row100 .inputBox textarea:valid ~ .line */
+{
+    height: 100%;
+}
+.box .row100 .inputBox textarea:focus + .text
+/* .box .row100 .inputBox textarea:valid + .text */
+{
+    top: -35px;
+    left: -10px;
+}
+.modal-btn
+{
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none;
+    background: yellow;
+    color: #000;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 2px;
+}
+
+.btn-send{
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+	outline: none;
+	background: yellow;
+	color: #000;
+	font-weight: 600;
+	font-size: 18px;
+	border-radius: 2px;
+	display: none;
+}
+
+@media (max-width: 991px){
+	main{
+		flex-direction: column;
+	}
+	main div:nth-child(1){
+		width: 100%;
+		height: 100%;
+	}
+	.box-1{
+		justify-content: space-around;
+	}
+	.box-2{
+		display: none;
+	}
+	.price {
+		padding-left: 0em;
+  }
+  main h1{
+	margin-top: 1em;
+  }
+  .btn-send{
+	display: block;
+  }
+}
+@media (max-width: 767px)
+{
+   main h1{
+font-size: 3em;
+	}
+	.tel a{
+		font-size: 3em;
+	}
+	.box-li{
+		padding-left: 0;
+	}
+	main h3{
+		font-size: 1em;
+	}
+	.modal-box{
+		width: 80vw;
+	}
+}
+@media (max-width: 567px)
+{
+	main h1{
+		font-size: 2.5em;
+	}
+	.btn-send{
+		background: #ffff00a3;
+	}
+	.btn-send:hover{
+		background: yellow;
+	}
+}
+@media (max-width: 467px)
+{
+	main h1{
+		font-size: 2.3em;
+	}
+	main h3{
+		font-size: .8em;
+	}
+	.tel a {
+		font-size: 2em;
+  }
+  main ul li{
+	font-size: 1em;
+  }
+}

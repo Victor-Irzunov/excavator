@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	<!-- <link rel="android-chrome-192x192" sizes="192x192" href="android-chrome-192x192.png">
+	<link rel="android-chrome-512x512" sizes="512x512" href="android-chrome-512x512.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="shortcut icon" href="apple-touch-icon.png"> -->
+
+
+	<link rel="stylesheet" href="style.css">
+	<title>Аренда мини-экскаватора в Минске и Минской облати</title>
+</head>
+
+<body>
+
+	<div class="main">
+		<div class="container">
+			<div class="modal">
+				<div class="modal-box">
+					<div class="modal-exit" onclick="closeModal();">
+						❌
+					</div>
+					<div class="formBx">
+						<form id="form_id">
+							<h3>Отправить заявку</h3>
+							<input type="text" id="input_text" name="name" placeholder="Имя">
+							<input type="date" class="start" name="date" min="2022-11-06" max="2023-12-31"
+											id="input_date">
+							<input type="tel" name="phone" id="input_tel" placeholder="Телефон *" required>
+							<textarea name="message" id="input_message" placeholder="Ваше сообщение"></textarea>
+							<button class="modal-btn" type="submit">Отправить</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<main>
+				<div class="box1">
+					<h1>Аренда <span>мини-экскаватора</span> в Минске и Минской облати.</h1>
+					<div class="tel">
+						<a href="tel:80297777125">+375 29 777-71-25</a>
+					</div>
+
+					<div class="price">
+						<h2>Тариф: <span>49,90 руб./час</span></h2>
+					</div>
+					<div class="box-btn">
+						<button onclick="openModal();" class="btn-send">Отправить заявку</button>
+					</div>
+					<div class="box-li">
+						<ul>
+							<li>Канализация под ключ.</li>
+							<li>Любой вид земляных работ.</li>
+							<li>Наличный, безналичный расчёт.</li>
+							<li>Масса 3т.</li>
+						</ul>
+					</div>
+					<div>
+						<h3>Минск <span>|</span> Минский район <span>|</span> Смолевичи <span>|</span> Жодино <span>|</span>
+							Логойск <span>|</span> Дзержинск</h3>
+					</div>
+
+				</div>
+
+				<div class="box-2">
+					<p>ИП Щуцкий А.И.</p>
+
+
+					<div class="box">
+						<form id="form_id">
+							<h4>Арендовать</h4>
+							<div class="row100">
+								<div class="col">
+									<div class="inputBox">
+										<input type="text" id="input_text" name="name">
+										<span class="text">Имя</span>
+										<span class="line"></span>
+									</div>
+								</div>
+								<div class="col">
+									<div class="inputBox">
+										<input type="date" class="start" name="date" min="2022-11-06" max="2023-12-31"
+											id="input_date">
+										<span class="line start"></span>
+									</div>
+								</div>
+							</div>
+							<div class="row100">
+								<div class="col">
+									<div class="inputBox">
+										<input type="tel" name="phone" id="input_tel" required>
+										<span class="text">Телефон *</span>
+										<span class="line"></span>
+									</div>
+								</div>
+								<div class="col">
+									<div class="inputBox">
+										<textarea name="message" id="input_message"></textarea>
+										<span class="text">Сообщение</span>
+										<span class="line"></span>
+									</div>
+								</div>
+							</div>
+							<div class="row100">
+								<div class="col">
+									<button class="modal-btn" type="submit">Отправить</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</main>
+
+
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script type="text/javascript">
+
+
+		const token = '5562126487:AAGqX2TBd3toX15OgSCQ2yW55RNfgtBWQko'
+		const chat_id = '-1001794221917'
+		const uri_api = `https://api.telegram.org/bot${token}/sendMessage`
+
+
+		// function sendForm(props) {
+		const btn = document.querySelector('.modal-btn')
+
+		document.getElementById('form_id').addEventListener('submit', function (e) {
+			e.preventDefault()
+			let messageForm = `<b>Заказ с сайта мини-экскаватора</b>\n`
+			messageForm += `<b> </b>\n`
+			messageForm += `<b>Сообщение: </b> <i>«${this.message.value}»</i>\n`
+			messageForm += `<b>На дату: ${this.date.value} </b>\n`
+			messageForm += `<b> </b>\n`
+			messageForm += `<b>Отправитель: ${this.name.value}</b> \n`
+			messageForm += `<b>Телефон:${this.phone.value} </b> \n`
+
+			axios.post(uri_api, {
+				chat_id,
+				parse_mode: 'html',
+				text: messageForm,
+			}).then(data => {
+				btn.innerHTML = 'Отправлено'
+				setTimeout(() => {
+					// closeModal()
+					btn.innerHTML = 'Отправить'
+				}, 2000)
+			}).then(data => {
+				document.getElementById('input_text').value = ''
+				document.getElementById('input_tel').value = ''
+				document.getElementById('input_message').value = ''
+			})
+		})
+		// }
+
+		function openModal() {
+			document.querySelector('.modal').classList.add('active')
+		}
+		const closeModal = () => document.querySelector('.modal').classList.remove('active')
+	</script>
+
+</body>
+
+</html>
